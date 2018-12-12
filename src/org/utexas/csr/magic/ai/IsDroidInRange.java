@@ -1,4 +1,4 @@
-package org.utexas.csr.magic.ai;
+ackage org.utexas.csr.magic.ai;
 
 import org.utexas.csr.magic.Board;
 import org.utexas.csr.magic.Droid;
@@ -27,17 +27,25 @@ public class IsDroidInRange extends Routine {
             if (!droid.getName().equals(enemy.getName())) {
                 System.out.println(" Name of droid acquired " + enemy.getName() + " by " + droid.getName());
                 if (isInRangeDF(droid, enemy)) {
-                    if(enemy.getHealth()>0 && droid.isAlive()) {
+                    boolean weakerDroid = true;
+                    /*if(enemy.getHealth() <= droid.getHealth()){
+                        weakerDroid = true;
+                    }*/
+                    if(enemy.getHealth()>0 && droid.isAlive() && weakerDroid) {
                         enemy.setHealth(enemy.getHealth() - droid.getDamage());
                         succeed(enemy.getName() + " now has health of " + enemy.getHealth());
                         break;
                     } else{
-                        break;
+                        String messageBack = Integer.toString(droid.getHealth()) + " is my Health and my Enemy... " + Integer.toString(enemy.getHealth());
+                        //Routines.wander(board);
+                        droid.setX(droid.getX()-1);
+                        droid.setY(droid.getY()+1);
+                        fail(messageBack);
                     }
                 }
             }
         }
-        fail();
+        //fail();
     }
 
     private boolean isInRange(Droid droid, Droid enemy) {
