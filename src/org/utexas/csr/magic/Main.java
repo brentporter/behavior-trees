@@ -14,7 +14,7 @@ public class Main {
     private static Random random = new Random();
 
     public static void main(String[] args) {
-        
+
         //System.out.println((random.nextInt(2)+1 )+ " " + (random.nextInt(2)+1));
         Board board = new Board(25, 25);
         Droid droid1 = new Droid("Droid_1", 5, 2, random.nextInt(6)+3, random.nextInt(2)+1, random.nextInt(3)+2);
