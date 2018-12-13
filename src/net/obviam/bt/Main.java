@@ -11,13 +11,7 @@ public class Main {
     private JPanel canvas;
 
     public static void main(String[] args) {
-//        JFrame frame = new JFrame("Main");
-//        frame.setPreferredSize(new Dimension(800, 600));
-//        frame.setResizable(false);
-//        frame.setContentPane(new Main().mainPanel);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.pack();
-//        frame.setVisible(true);
+
 
         Board board = new Board(25, 25);
         Droid droid1 = new Droid("Droid_1", 2, 2, 10, 1, 3);
